@@ -1,0 +1,12 @@
+{% block content%}
+<div>
+    <img src="{{user.profile.image.url}}">
+
+    {%if user.is_authenticated%}
+        <h2>{{user.username}}</h2>
+        <h2>bio</h2>
+        {% else%}
+        <h1>You are not logged in!</h1>
+    {% endif %}
+</div>
+{%endblock%}

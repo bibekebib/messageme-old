@@ -9,10 +9,13 @@ from django.dispatch import receiver
 class profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     bio = models.TextField(blank=False)
-    Photo = models.ImageField(upload_to='userimage/')
+    Photo = models.ImageField(default='default.jpeg', upload_to='userimage/')
+    First_name = models.CharField(max_length=50)
+    Last_name = models.CharField(max_length=50)
+    # link = models.SlugField()
 
     def __str__(self):
-        return self.user.username
+        return f'{self.user.username} profile'
 
 
 # @receiver(post_save, sender=User)
